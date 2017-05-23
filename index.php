@@ -1,4 +1,8 @@
 <!doctype html>
+	<!-- Conexão com o banco de dados -->
+	<?php 
+		require_once "bd/bdconfig.php";
+	 ?>
 <html>
 <head lang="en">
 	<meta charset="utf-8">
@@ -117,7 +121,22 @@
 		</div><!-- /container -->
 	</div><!-- /slide2 -->
 	
-	<!-- === SLide 3 - Portfolio -->
+	
+	<div class='slide story' id='slide-3' data-slide='3'>
+		<div class='row'>
+			<?php
+				$imagens  = R::findAll('portfolio');
+				foreach($imagens as $imagem){
+					echo "
+						<div class='col-12 col-sm-6 col-lg-2'><a data-fancybox-group='portfolio' class='fancybox' 
+							href='images/portfolio/p01-large.jpg'><img class='thumb' src='images/portfolio/{$imagem->imagem}' alt=''></a></div>					
+						";
+				}
+			?>
+		</div>
+	</div>
+
+	<!-- === SLide 3 - Portfolio 
 	<div class="slide story" id="slide-3" data-slide="3">
 		<div class="row">
 			<div class="col-12 col-sm-6 col-lg-2"><a data-fancybox-group="portfolio" class="fancybox" href="images/portfolio/p01-large.jpg"><img class="thumb" src="images/portfolio/p01-small.jpg" alt=""></a></div>
@@ -132,8 +151,11 @@
 			<div class="col-12 col-sm-6 col-lg-2"><a data-fancybox-group="portfolio" class="fancybox" href="images/portfolio/p04-large.jpg"><img class="thumb" src="images/portfolio/p04-small.jpg" alt=""></a></div>
 			<div class="col-12 col-sm-6 col-lg-2"><a data-fancybox-group="portfolio" class="fancybox" href="images/portfolio/p11-large.jpg"><img class="thumb" src="images/portfolio/p11-small.jpg" alt=""></a></div>
 			<div class="col-12 col-sm-6 col-lg-2"><a data-fancybox-group="portfolio" class="fancybox" href="images/portfolio/p12-large.jpg"><img class="thumb" src="images/portfolio/p12-small.jpg" alt=""></a></div>
-		</div><!-- /row -->
-	</div><!-- /slide3 -->
+		</div>
+	</div>
+	<!-- /slide3 -->
+	
+	
 	
 	<!-- === Slide 4 - Process === -->
 	<div class="slide story" id="slide-4" data-slide="4">
